@@ -85,7 +85,7 @@ function checkIfCityExistsOnList(pCityName) {
 //Creates the cards for the 5 day forecast
 function Instantiate5DayForecastCards()
 {
-    for(var i = 0; i < 5; i++)
+    for(var i = 1; i < 6; i++)
     {
         var iCard_ID = "date-" + i;
         var iTemp_ID = "temp-" + i;
@@ -102,12 +102,12 @@ function Instantiate5DayForecastCards()
         $card.append($body);
 
         $temp = $("<p>").text("Temp: ");
-        $temp_Span = $("<span>").attr("id", iTemp_ID);
+        $temp_Span = $("<span>").attr("id", iTemp_ID).addClass("text-warning");
 
         $body.append($temp.append($temp_Span));
         
         $hum = $("<p>").text("Humidity: ");
-        $hum_Span = $("<span>").attr("id", iHum_ID);
+        $hum_Span = $("<span>").attr("id", iHum_ID).addClass("text-warning");
         
         $body.append($hum.append($hum_Span));
 
@@ -126,9 +126,18 @@ function setUpDisplay(pCityName)
         $("#display-hum").text(iCityObject.humidity[0]);
         $("#display-wind").text(iCityObject.windSpeed);
 
-        for(var i = 0; i < 5; i++)
+        for(var i = 1; i < 6; i++)
         {
-            
+            var id = "#temp-" + i;
+
+            $(id).text(iCityObject.temp[i]);
+        }
+
+        for(var i = 1; i < 6; i++)
+        {
+            var id = "#hum-" + i;
+
+            $(id).text(iCityObject.humidity[i]);
         }
     }
 }
