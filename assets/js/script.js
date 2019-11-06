@@ -14,7 +14,7 @@ function getUserCity(pCityName) {
     var count = 6;
 
 
-    var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + pCityName + "&APPID=02c4d69e089dd1f4df69f5d257d967d8&units=imperial&cnt=6";
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + pCityName + "&APPID=02c4d69e089dd1f4df69f5d257d967d8&units=imperial&cnt=6";
 
     console.log(queryURL);
 
